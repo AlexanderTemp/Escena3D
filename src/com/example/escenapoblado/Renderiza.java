@@ -32,18 +32,11 @@ public class Renderiza extends GLSurfaceView implements Renderer{
 	private Vehiculo2 auto1;
 	private Vehiculo3 auto2;
 	
-	/* Para la rotación */
-	private float rotY;
-	
 	public Renderiza(Context contexto) {
 		super(contexto);
-		/* Se inicia el renderizado */
 		this.setRenderer(this);
-		/* La ventana solicita recibir una entrada */
 		this.requestFocus();
-		/* Se establece que la ventana detecte el modo táctil */
 		this.setFocusableInTouchMode(true);
-		/* Se renderizará al inicio o cuando se llame a requestRender() */
 		this.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 	}
 	
@@ -79,8 +72,6 @@ public class Renderiza extends GLSurfaceView implements Renderer{
 		gl.glScalef(0.4f, 0.4f, 0.4f);
 		gl.glRotatef(20, 1.0f, 0.0f, 0.0f);
 
-		// Para la animación
-		//gl.glRotatef(rotY, 0.0f, 1.0f, 0.0f);
 		gl.glRotatef(trazoHorizontal, 0.0f, 1.0f, 0.0f);
 		gl.glRotatef(trazoVertical, 1.0f, 0.0f, 0.0f);
 
@@ -348,7 +339,7 @@ public class Renderiza extends GLSurfaceView implements Renderer{
 	
 	
 	/**
-	 * Maneja los eventos del movimiento en la pantalla táctil.
+	 * Maneja los eventos del movimiento en la pantalla tÃ¡ctil.
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent e) {
@@ -358,8 +349,8 @@ public class Renderiza extends GLSurfaceView implements Renderer{
 		case MotionEvent.ACTION_MOVE:
 			float dx = x - antX;
 			float dy = y - antY;
-			trazoHorizontal = trazoHorizontal + dx * 0.28125f; // 90 / 320 = 0.5625
-			trazoVertical = trazoVertical + dy * 0.1875f; // 90 / 480 = 0.1875
+			trazoHorizontal = trazoHorizontal + dx * 0.28125f;
+			trazoVertical = trazoVertical + dy * 0.1875f; 
 			requestRender();
 		}
 		antX = x;
